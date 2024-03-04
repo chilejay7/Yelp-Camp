@@ -14,10 +14,6 @@ app.use(morgan('dev'));
 
 app.use(routes);
 
-// app.get('/', (req, res) => {
-//     res.send('Test route and server are responding.')
-// })
-
 db.once('open', () => {
     app.listen(PORT, () => {
         console.log('The server is up and listening on PORT', PORT);
