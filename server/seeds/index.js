@@ -15,7 +15,7 @@ db.once('open', async () => {
         const randomCity = Math.floor(Math.random() * 1000);
         const camp = Campground.create({
             title: `${sample(descriptors)} ${sample(places)}`,
-            location: `${cities[randomCity].city, cities[randomCity].state}`,
+            location: `${cities[randomCity].city}, ${cities[randomCity].state}`,
         })
     }
 
