@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     path: '/',
+    index: true,
     element: <App />,
     errorElement: <h1 className='error-header'>Page does not exist.  Please try another route.</h1>,
   }
