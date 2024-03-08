@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Campground } = require('../models');
 
-router.get('/', (req, res) => {
-    res.send('Campgrounds routes are connected.');
+router.get('/', async (req, res) => {
+    const camps = await Campground.find({});
+    return res.json(camps);
 });
 
 router.get('/:id', async ({ params, body }, res) => {

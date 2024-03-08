@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Campgrounds />
+      },
+      {
+        path: '/campgrounds',
+        element: <Campgrounds />
       }
     ]
   }
