@@ -68,6 +68,6 @@ button:focus-visible {
 } */
 
 body {
-  background-image: url('./public/images/iceland.jpg');
+  background-image: url('./images/iceland.jpg');
   background-size: cover;
 }
