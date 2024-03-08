@@ -175,7 +175,7 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            Yelp Camp...Your Adventure Awaits
           </Typography>
           <Search>
             <SearchIconWrapper>
