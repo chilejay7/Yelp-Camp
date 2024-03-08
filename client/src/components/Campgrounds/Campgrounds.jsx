@@ -33,7 +33,7 @@ export default function Campgrounds() {
 
             <ul>
                 {campgrounds.map(camp =>
-                    <li key={camp._id}>{camp.title}</li>
+                    <li key={camp._id}>{camp.title} - {camp.location}</li>
                 )}
             </ul>
         </>
