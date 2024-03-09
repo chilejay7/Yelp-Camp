@@ -17,6 +17,8 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Button from '@mui/material/Button';
+import { NavLink } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -81,6 +83,10 @@ export default function Navbar() {
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
+  const routeHome = () => {
+    window.location = '/'
+  }
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -177,6 +183,7 @@ export default function Navbar() {
           >
             Yelp Camp...Your Adventure Awaits
           </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -186,8 +193,12 @@ export default function Navbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
+          <NavLink to='/'><Button variant="contained">Home</Button></NavLink>
+
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
