@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { getCampgrounds } from "../../utils/api";
+import { Link, NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import './Home.css'
 
 export default function Campgrounds() {
 
@@ -24,22 +27,23 @@ export default function Campgrounds() {
 
     return (
         <>
-            <div className='campgrounds'>
+            <div className='home-camps'>
                 <h2>Campgrounds</h2>
 
                 <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
                 <Button variant="contained" onClick={clearSearch}>Clear Search</Button>
+            </div>
 
+            <Box className="camp-div">
                 <ul>
                     {campgrounds.map(camp =>
-                        <div key={camp._id}>
-                            <li>{camp.title} - {camp.location}</li>
-                            <Button href={`/campgrounds/${camp._id}`} variant="contained">View {camp.title}</Button>
-                        </div>
+
+                        <NavLink to={`/campgrounds/${camp._id}`}><li>{camp.title} - {camp.location}</li></NavLink>
 
                     )}
                 </ul>
-            </div>
+            </Box>
+
 
         </>
 

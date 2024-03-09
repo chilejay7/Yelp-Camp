@@ -25,12 +25,12 @@ export default function Campgrounds() {
 
     return (
         <>
-            <div className='campgrounds'>
+            <div className="campgrounds">
                 <h2>Campgrounds</h2>
 
                 <ul>
                     {campgrounds.map(camp =>
-                        <div key={camp._id}>
+                        <div key={camp._id} className="camp-div">
                             <li>{camp.title} - {camp.location}</li>
                             <Button href={`/campgrounds/${camp._id}`} variant="contained">View {camp.title}</Button>
                         </div>
