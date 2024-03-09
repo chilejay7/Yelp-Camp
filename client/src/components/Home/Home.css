@@ -6,9 +6,18 @@
 
 .camp-div {
     font-weight: bold;
-    color: black;
 
     & a {
         text-decoration: none;
+        color: white;
+
+        & :hover {
+            color: black;
+        }
+    }
+
+    & ul li {
+        list-style: none;
+        margin: 5px;
     }
 }
