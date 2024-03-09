@@ -28,8 +28,6 @@ export default function Campgrounds() {
             <div className='campgrounds'>
                 <h2>Campgrounds</h2>
 
-                <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
-
                 <ul>
                     {campgrounds.map(camp =>
                         <div key={camp._id}>
