@@ -84,10 +84,6 @@ export default function Navbar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const routeHome = () => {
-    window.location = '/'
-  }
-
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
     <Menu
@@ -198,6 +194,7 @@ export default function Navbar() {
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
 
           <NavLink to='/'><Button variant="contained">Home</Button></NavLink>
+          <NavLink to='/campgrounds'><Button variant="contained">View Campgrounds</Button></NavLink>
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
