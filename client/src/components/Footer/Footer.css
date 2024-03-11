@@ -1,4 +1,7 @@
 footer {
     background-color: white;
     text-align: center;
+    opacity: .95;
+    padding: 7px;
+    background-color: #1976d2;
 }
