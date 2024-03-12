@@ -10,20 +10,20 @@ export default function CampgroundById() {
 
     const [campground, setCampground] = useState({});
 
-    const findCamp = async () => {
-        try {
-            const response = await getCampgroundID(campID);
-            const campData = await response.json();
-            setCampground(campData);
-        } catch (err) {
-            console.error('Unable to fetch campground:', err)
-        }
-        
-    };
-
     useEffect(() => {
+        const findCamp = async () => {
+            try {
+                const response = await getCampgroundID(campID);
+                const campData = await response.json();
+                setCampground(campData);
+            } catch (err) {
+                console.error('Unable to fetch campground:', err)
+            }
+            
+        };
+        
         findCamp();
-    }, []);
+    }, [campID]);
 
     console.log('The campground in state is:', campground);
 
