@@ -12,7 +12,6 @@ export default function CampgroundById() {
         const campID = location[4];
         console.log('The campID is:', campID);
 
-
         console.log('Finding camp by id is running...')
         const findCamp = async () => {
             try {
@@ -27,8 +26,6 @@ export default function CampgroundById() {
 
         findCamp();
     }, []);
-
-    console.log('The campground in state is:', campground);
 
     return (
         <>
