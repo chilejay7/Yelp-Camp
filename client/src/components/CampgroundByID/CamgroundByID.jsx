@@ -21,7 +21,7 @@ export default function CampgroundById() {
             }
             
         };
-        
+
         findCamp();
     }, [campID]);
 
@@ -30,8 +30,18 @@ export default function CampgroundById() {
     return (
         <>
             <h2>Campground ID!</h2>
-            <p>Here is your campground...</p>
-            <p>{campground.title} - {campground.location}</p>
+
+            {Object.keys(campground).length > 0 ? (
+                <>
+                <p>Here is your campground...</p>
+                <p>{campground.title} - {campground.location}</p>
+                </>
+            ) : (
+                <p>Loading...</p>
+            )
+        
+        }
+            
         </>
     )
-}
+};
