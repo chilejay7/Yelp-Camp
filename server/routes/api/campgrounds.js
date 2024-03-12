@@ -6,11 +6,15 @@ router.get('/', async (req, res) => {
     return res.json(camps);
 });
 
-router.get('/:id', async ({ params, body }, res) => {
-    const { id } = params;
-    console.log('The request id is:', id);
-    // const data = await Campground.findById(id);
-    // return res.json(data);
+router.get('/:campID', async (req, res) => {
+    try {
+    const { campID } = req.params;
+    console.log('The request id is:', campID);
+    const data = await Campground.findById(campID);
+    return res.json(data);
+    } catch (err) {
+        console.error(err)
+    }
 })
 
 module.exports = router;

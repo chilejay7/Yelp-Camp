@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Campgrounds from './components/Campgrounds/Campgrounds.jsx'
 import CampgroundById from './components/CampgroundByID/CamgroundByID.jsx'
+import Home from './components/Home/Home.jsx'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Campgrounds />
+        element: <Home />
       },
       {
         path: '/campgrounds',

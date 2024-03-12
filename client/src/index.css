@@ -1,6 +1,6 @@
 body {
   background-image: url('./images/iceland.jpg');
-  background-size: cover;
+  /* background-size: cover; */
 }
 
 main {
