@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 
 export default function CampgroundById() {
 
-
     const [campground, setCampground] = useState({});
 
     useEffect(() => {
