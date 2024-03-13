@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Form } from 'react-router-dom';
+import { FormControl, TextField, Box, Button } from '@mui/material';
 
 export default function CampForm() {
 
-    const [campData, setCampData] = useState({campTitle: "", campLocation: ""});
+    const [campData, setCampData] = useState({ campTitle: "", campLocation: "" });
 
     const handleChange = (evt) => {
         console.log('Target name:', evt.target.name);
@@ -12,7 +12,7 @@ export default function CampForm() {
 
         setCampData(currData => {
             currData[updatedField] = newValue;
-            return {...currData};
+            return { ...currData };
         });
 
     };
@@ -20,7 +20,7 @@ export default function CampForm() {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         alert('Camp Form Submitted!');
-        setCampData({campTitle: "", campLocation: ""});
+        setCampData({ campTitle: "", campLocation: "" });
     };
 
     return (
@@ -37,6 +37,28 @@ export default function CampForm() {
                 <button>Submit</button>
             </form>
 
+            <FormControl onSubmit={handleSubmit}>
+                <Box
+                    component="form"
+                    sx={{
+                        '& > :not(style)': { m: 1, width: '25ch' },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <h2>Add a New Campground</h2>
+                    <div>
+                        <TextField id="title" label="Campground Title" variant="outlined" name="campTitle" value={campData.campTitle} onChange={handleChange} />
+                    </div>
+
+                    <div>
+                        <TextField id="location" label="Campground Location" variant="outlined" name="campLocation" value={campData.campLocation} onChange={handleChange} />
+                    </div>
+                    <Button variant="contained" color="success" onSubmit={handleSubmit}>
+                        Submit
+                    </Button>
+                </Box>
+            </FormControl>
         </>
     )
 }
