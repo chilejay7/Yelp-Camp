@@ -6,6 +6,12 @@ router.get('/', async (req, res) => {
     return res.json(camps);
 });
 
+router.post('/', async (req, res) => {
+    const { campData } = req.body;
+    const newCamp = await Campground.create(campData);
+    return res.json(newCamp);
+})
+
 router.get('/:campID', async (req, res) => {
     try {
     const { campID } = req.params;

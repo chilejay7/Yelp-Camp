@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FormControl, TextField, Box, Button } from '@mui/material';
+import { createCampground } from '../../utils/api';
 
 export default function CampForm() {
 
@@ -19,6 +20,7 @@ export default function CampForm() {
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
+        createCampground(campData);
         alert('Camp Form Submitted!');
         setCampData({ campTitle: "", campLocation: "" });
     };

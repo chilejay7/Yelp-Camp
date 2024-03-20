@@ -14,3 +14,13 @@ export function getCampgroundID(campID) {
         },
     });
 };
+
+export function createCampground(newCamp) {
+    return fetch(`/api/campgrounds`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newCamp),
+    });
+};
