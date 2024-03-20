@@ -10,9 +10,7 @@ export default function CampgroundById() {
 
         const location = window.location.href.split('/')
         const campID = location[4];
-        console.log('The campID is:', campID);
 
-        console.log('Finding camp by id is running...')
         const findCamp = async () => {
             try {
                 const response = await getCampgroundID(campID);
