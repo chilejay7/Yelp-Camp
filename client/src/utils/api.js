@@ -16,6 +16,7 @@ export function getCampgroundID(campID) {
 };
 
 export function createCampground(newCamp) {
+    console.log('Sending Camp Data through POST:', newCamp)
     return fetch(`/api/campgrounds`, {
         method: 'POST',
         headers: {
