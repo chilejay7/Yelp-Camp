@@ -25,7 +25,7 @@ export default function CampForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="title">Title</label>
                     <input type="text" id="title" name="campTitle" value={campData.campTitle} onChange={handleChange}></input>
@@ -35,9 +35,8 @@ export default function CampForm() {
                     <input type="text" id="location" name="campLocation" value={campData.campLocation} onChange={handleChange}></input>
                 </div>
                 <button>Submit</button>
-            </form>
+            </form> */}
 
-            <FormControl onSubmit={handleSubmit}>
                 <Box
                     component="form"
                     sx={{
@@ -45,20 +44,23 @@ export default function CampForm() {
                     }}
                     noValidate
                     autoComplete="off"
+
+                    onSubmit={handleSubmit}
                 >
+
                     <h2>Add a New Campground</h2>
                     <div>
-                        <TextField id="title" label="Campground Title" variant="outlined" name="campTitle" value={campData.campTitle} onChange={handleChange} />
+                        <TextField id="title" color="secondary" label="Campground Title" variant="outlined" name="campTitle" value={campData.campTitle} onChange={handleChange} />
                     </div>
 
                     <div>
-                        <TextField id="location" label="Campground Location" variant="outlined" name="campLocation" value={campData.campLocation} onChange={handleChange} />
+                        <TextField id="location" color="secondary" label="Campground Location" variant="outlined" name="campLocation" value={campData.campLocation} onChange={handleChange} />
                     </div>
-                    <Button variant="contained" color="success" onSubmit={handleSubmit}>
+                    <Button variant="contained" color="success" type="submit">
                         Submit
                     </Button>
-                </Box>
-            </FormControl>
+                </Box >
+            
         </>
     )
 }
