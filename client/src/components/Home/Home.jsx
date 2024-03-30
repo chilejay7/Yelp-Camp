@@ -38,7 +38,12 @@ export default function Campgrounds() {
                 <ul>
                     {campgrounds.map(camp =>
 
-                        <NavLink to={`/campgrounds/${camp._id}`}><li>{camp.title} - {camp.location}</li></NavLink>
+                        <NavLink
+                            to={`/campgrounds/${camp._id}`}>
+                            <li>
+                                {camp.title} - {camp.location}
+                            </li>
+                        </NavLink>
 
                     )}
                 </ul>
