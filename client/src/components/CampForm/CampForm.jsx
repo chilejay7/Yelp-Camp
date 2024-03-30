@@ -47,7 +47,7 @@ export default function CampForm() {
                     <TextField id="location" color="secondary" label="Campground Location" variant="outlined" name="campLocation" value={campData.campLocation} onChange={handleChange} />
                 </div>
                 <Button variant="contained" color="success" type="submit">
-                    Add Camground
+                    Add Campground
                 </Button>
             </Box >
 
