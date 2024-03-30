@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FormControl, TextField, Box, Button } from '@mui/material';
 import { createCampground } from '../../utils/api';
+import CampForm from '../CampForm/CampForm';
 
 export default function AddCamp() {
 
@@ -39,13 +40,16 @@ export default function AddCamp() {
             >
 
                 <h2>Add a New Campground</h2>
-                <div>
+                {/* <div>
                     <TextField id="title" color="secondary" label="Campground Title" variant="outlined" name="campTitle" value={campData.campTitle} onChange={handleChange} />
                 </div>
 
                 <div>
                     <TextField id="location" color="secondary" label="Campground Location" variant="outlined" name="campLocation" value={campData.campLocation} onChange={handleChange} />
-                </div>
+                </div> */}
+
+                <CampForm campData={campData} handleChange={handleChange} />
+
                 <Button variant="contained" color="success" type="submit">
                     Add Campground
                 </Button>
