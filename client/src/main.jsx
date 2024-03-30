@@ -4,7 +4,7 @@ import App from './App.jsx'
 import Campgrounds from './components/Campgrounds/Campgrounds.jsx'
 import CampgroundById from './components/CampgroundByID/CamgroundByID.jsx'
 import Home from './components/Home/Home.jsx'
-import CampForm from './components/CampForm/CampForm.jsx';
+import AddCamp from './components/AddCamp/AddCamp.jsx';
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/campgrounds/new',
-        element: <CampForm />
+        element: <AddCamp />
       }
     ]
   }

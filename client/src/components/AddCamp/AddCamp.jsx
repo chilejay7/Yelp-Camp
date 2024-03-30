@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FormControl, TextField, Box, Button } from '@mui/material';
 import { createCampground } from '../../utils/api';
 
-export default function CampForm() {
+export default function AddCamp() {
 
     const [campData, setCampData] = useState({ campTitle: "", campLocation: "" });
 
