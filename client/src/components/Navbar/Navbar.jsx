@@ -195,6 +195,7 @@ export default function Navbar() {
 
           <NavLink to='/' className="nav-btn"><Button variant="contained" color="success">Home</Button></NavLink>
           <NavLink to='/campgrounds' className="nav-btn"><Button variant="contained" color="success">View Campgrounds</Button></NavLink>
+          <NavLink to='/campgrounds/new' className="nav-btn"><Button variant="contained" color="success">Add Campground</Button></NavLink>
 
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
