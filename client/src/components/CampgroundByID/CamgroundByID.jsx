@@ -41,7 +41,7 @@ export default function CampgroundById() {
                 <>
                     <p>Here is your campground...</p>
                     <p>{campground.title} - {campground.location}</p>
-                    <NavLink to="/campgrounds/new"><Button variant="contained">Edit Campground</Button></NavLink>
+                    <NavLink to={`/campgrounds/${campground._id}/edit`}><Button variant="contained">Edit Campground</Button></NavLink>
                 </>
             ) : (
                 <p>Loading...</p>

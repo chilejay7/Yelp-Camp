@@ -5,7 +5,7 @@ import CampForm from '../CampForm/CampForm';
 
 export default function AddCamp() {
 
-    const [campData, setCampData] = useState({ campTitle: "", campLocation: "" });
+    const [campData, setCampData] = useState({ title: "", location: "" });
 
     const handleChange = (evt) => {
 
@@ -23,7 +23,7 @@ export default function AddCamp() {
         evt.preventDefault();
         createCampground(campData);
         alert('Camp Form Submitted!');
-        setCampData({ campTitle: "", campLocation: "" });
+        setCampData({ title: "", location: "" });
     };
 
     return (
