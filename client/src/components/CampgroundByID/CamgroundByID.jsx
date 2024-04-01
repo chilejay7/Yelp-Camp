@@ -2,14 +2,18 @@ import './CampgroundByID.css';
 import { getCampgroundID } from '../../utils/api';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
-import { Link, NavLink } from 'react-router-dom'; 
+import { Link, NavLink, useParams } from 'react-router-dom'; 
 
 
 export default function CampgroundById() {
 
     const [campground, setCampground] = useState({});
 
+    const { id } = useParams();
+    console.log('The id of the campground is:', id);
+
     useEffect(() => {
+   
 
         const location = window.location.href.split('/')
         const campID = location[4];
