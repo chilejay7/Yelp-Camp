@@ -10,8 +10,8 @@ export default function CampForm( { campData, handleChange } ) {
                 color="secondary" 
                 label="Campground Title" 
                 variant="outlined" 
-                name="campTitle" 
-                value={campData.campTitle}
+                name="title" 
+                value={campData.title}
                 onChange={handleChange} 
                 />
             </div>
@@ -21,8 +21,8 @@ export default function CampForm( { campData, handleChange } ) {
                 color="secondary" 
                 label="Campground Location" 
                 variant="outlined" 
-                name="campLocation" 
-                value={campData.campLocation} 
+                name="location" 
+                value={campData.location} 
                 onChange={handleChange} 
                 />
             </div>
