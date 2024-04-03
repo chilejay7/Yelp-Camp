@@ -29,12 +29,13 @@ export default function EditCamp() {
     }, []);
 
     const handleChange = (evt) => {
-
-        const newValue = evt.target.value;
-        const updatedField = evt.target.name;
+        
+        const { name, value } = evt.target;
+        console.log('The target name is:', name);
+        console.log('The target value is:', value);
 
         setCampground(currData => {
-            currData[updatedField] = newValue;
+            currData[name] = value;
             return { ...currData };
         });
 
@@ -43,7 +44,7 @@ export default function EditCamp() {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         alert('Edited Information submitted!');
-        setCampground({});
+        setCampground({ title: "", location: "" });
     };
 
     return (
@@ -64,10 +65,6 @@ export default function EditCamp() {
                 </h2>
 
                 <CampForm campData={campground} handleChange={handleChange} />
-
-
-
-
 
                 <Button variant="contained" color="success" type="submit">
                     Update Campground
