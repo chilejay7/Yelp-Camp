@@ -3,13 +3,14 @@ import CampForm from '../CampForm/CampForm';
 import { getCampgroundID } from "../../utils/api";
 import { FormControl, TextField, Box, Button } from '@mui/material';
 import { useParams } from "react-router-dom";
+import { updateCampground } from '../../utils/api';
 
 export default function EditCamp() {
 
-    // The initial state has to be set to include the names of the keys with empty values.  This avoids an error regarding uncontrolled inputs becoming controlled.
-    const [campground, setCampground] = useState({ title: "", location: "" });
-
     const { id } = useParams();
+
+    // The initial state has to be set to include the names of the keys with empty values.  This avoids an error regarding uncontrolled inputs becoming controlled.
+    const [campground, setCampground] = useState({ _id: id, title: "", location: "" });
 
     useEffect(() => {
 
@@ -29,7 +30,7 @@ export default function EditCamp() {
     }, []);
 
     const handleChange = (evt) => {
-        
+
         const { name, value } = evt.target;
         console.log('The target name is:', name);
         console.log('The target value is:', value);
@@ -41,8 +42,9 @@ export default function EditCamp() {
 
     };
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
+        await updateCampground(campground);
         alert('Edited Information submitted!');
         setCampground({ title: "", location: "" });
     };

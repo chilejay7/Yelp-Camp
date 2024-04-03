@@ -18,9 +18,9 @@ export default function AddCamp() {
 
     };
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        createCampground(campData);
+        await createCampground(campData);
         alert('Camp Form Submitted!');
         setCampData({ title: "", location: "" });
     };

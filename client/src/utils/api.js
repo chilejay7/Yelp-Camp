@@ -6,7 +6,6 @@ export function getCampgrounds() {
     });
 };
 
-
 export function getCampgroundID(campID) {
     return fetch(`/api/campgrounds/${campID}`, {
         headers: {
