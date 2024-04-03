@@ -25,3 +25,13 @@ export function createCampground(newCamp) {
         body: JSON.stringify(newCamp),
     });
 };
+
+export function updateCampground(updatedCamp) {
+    return fetch(`/api/campgrounds`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedCamp),
+    });
+};
