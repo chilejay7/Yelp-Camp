@@ -10,7 +10,7 @@ export default function EditCamp() {
     const { id } = useParams();
 
     // The initial state has to be set to include the names of the keys with empty values.  This avoids an error regarding uncontrolled inputs becoming controlled.
-    const [campground, setCampground] = useState({ _id: id, title: "", location: "" });
+    const [campground, setCampground] = useState({ id: id, title: "", location: "" });
 
     useEffect(() => {
 
@@ -46,7 +46,7 @@ export default function EditCamp() {
         evt.preventDefault();
         await updateCampground(campground);
         alert('Edited Information submitted!');
-        setCampground({ title: "", location: "" });
+        setCampground({ id: "", title: "", location: "" });
     };
 
     return (

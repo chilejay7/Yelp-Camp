@@ -6,11 +6,11 @@ router.get('/', async (req, res) => {
     return res.json(allCamps);
 });
 
-router.get('/:campID', async (req, res) => {
+router.get('/:campId', async (req, res) => {
     try {
-    const { campID } = req.params;
-    console.log('The request id is:', campID);
-    const data = await Campground.findById(campID);
+    const { campId } = req.params;
+    console.log('The request id is:', campId);
+    const data = await Campground.findById(campId);
     return res.json(data);
     } catch (err) {
         console.error(err)
@@ -33,10 +33,10 @@ router.post('/', async (req, res) => {
 
 router.put('/', async (req, res) => {
     try{
-        const { _id, title, location } = req.body;
+        const { id, title, location } = req.body;
         console.log('The updated data sent is:', req.body);
 
-        const updatedCamp = await Campground.findByIdAndUpdate(_id, {
+        const updatedCamp = await Campground.findByIdAndUpdate(id, {
             title,
             location
         });
