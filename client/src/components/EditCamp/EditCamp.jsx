@@ -2,23 +2,20 @@ import { useEffect, useState } from "react";
 import CampForm from '../CampForm/CampForm';
 import { getCampgroundID } from "../../utils/api";
 import { FormControl, TextField, Box, Button } from '@mui/material';
+import { useParams } from "react-router-dom";
 
 export default function EditCamp() {
 
-    const [campground, setCampground] = useState({});
+    // The initial state has to be set to include the names of the keys with empty values.  This avoids an error regarding uncontrolled inputs becoming controlled.
+    const [campground, setCampground] = useState({ title: "", location: "" });
 
-    // const [campgroundData, setCampData] = useState({ title: "", location: "" });
+    const { id } = useParams();
 
     useEffect(() => {
 
-        const location = window.location.href.split('/')
-        const campID = location[4];
-
-        console.log('Camp Id', campID)
-
         const findCamp = async () => {
             try {
-                const response = await getCampgroundID(campID);
+                const response = await getCampgroundID(id);
                 const campData = await response.json();
                 setCampground(campData);
             } catch (err) {

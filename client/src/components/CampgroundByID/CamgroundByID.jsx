@@ -20,7 +20,7 @@ export default function CampgroundById() {
 
         const findCamp = async () => {
             try {
-                const response = await getCampgroundID(campID);
+                const response = await getCampgroundID(id);
                 const campData = await response.json();
                 setCampground(campData);
             } catch (err) {
