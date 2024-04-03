@@ -8,11 +8,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-    const { campTitle, campLocation } = req.body;
+    const { title, location } = req.body;
     console.log('The camp data sent is:', req.body);
     const newCamp = await Campground.create({
-        title: campTitle,
-        location: campLocation
+        title,
+        location
     });
     return res.json(newCamp);
     } catch (err) {

@@ -9,11 +9,10 @@ export default function AddCamp() {
 
     const handleChange = (evt) => {
 
-        const newValue = evt.target.value;
-        const updatedField = evt.target.name;
+        const { name, value } = evt.target;
 
         setCampData(currData => {
-            currData[updatedField] = newValue;
+            currData[name] = value;
             return { ...currData };
         });
 
