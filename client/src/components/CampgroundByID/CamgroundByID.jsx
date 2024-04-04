@@ -2,25 +2,23 @@ import './CampgroundByID.css';
 import { getCampgroundID } from '../../utils/api';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
-import { Link, NavLink, useParams } from 'react-router-dom'; 
+import { Link, NavLink, useParams } from 'react-router-dom';
 
 
 export default function CampgroundById() {
 
     const [campground, setCampground] = useState({});
 
+    // The useParams hook is more effective when using React than splitting the window location href property.
+    // const location = window.location.href.split('/')
+    // const campID = location[4];
     const { id } = useParams();
-    console.log('The id of the campground is:', id);
 
     useEffect(() => {
-   
-
-        const location = window.location.href.split('/')
-        const campID = location[4];
 
         const findCamp = async () => {
             try {
-                const response = await getCampgroundID(campID);
+                const response = await getCampgroundID(id);
                 const campData = await response.json();
                 setCampground(campData);
             } catch (err) {
@@ -45,7 +43,10 @@ export default function CampgroundById() {
                 <>
                     <p>Here is your campground...</p>
                     <p>{campground.title} - {campground.location}</p>
-                    <NavLink to={`/campgrounds/${campground._id}/edit`}><Button variant="contained">Edit Campground</Button></NavLink>
+                    
+                    <NavLink to={`/campgrounds/${campground._id}/edit`}>
+                        <Button variant="contained">Edit Campground</Button>
+                    </NavLink>
                 </>
             ) : (
                 <p>Loading...</p>

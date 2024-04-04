@@ -6,7 +6,6 @@ export function getCampgrounds() {
     });
 };
 
-
 export function getCampgroundID(campID) {
     return fetch(`/api/campgrounds/${campID}`, {
         headers: {
@@ -23,5 +22,15 @@ export function createCampground(newCamp) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(newCamp),
+    });
+};
+
+export function updateCampground(updatedCamp) {
+    return fetch(`/api/campgrounds`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedCamp),
     });
 };

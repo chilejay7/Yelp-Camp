@@ -2,23 +2,21 @@ import { useEffect, useState } from "react";
 import CampForm from '../CampForm/CampForm';
 import { getCampgroundID } from "../../utils/api";
 import { FormControl, TextField, Box, Button } from '@mui/material';
+import { useParams } from "react-router-dom";
+import { updateCampground } from '../../utils/api';
 
 export default function EditCamp() {
 
-    const [campground, setCampground] = useState({});
+    const { id } = useParams();
 
-    // const [campgroundData, setCampData] = useState({ title: "", location: "" });
+    // The initial state has to be set to include the names of the keys with empty values.  This avoids an error regarding uncontrolled inputs becoming controlled.
+    const [campground, setCampground] = useState({ id: id, title: "", location: "" });
 
     useEffect(() => {
 
-        const location = window.location.href.split('/')
-        const campID = location[4];
-
-        console.log('Camp Id', campID)
-
         const findCamp = async () => {
             try {
-                const response = await getCampgroundID(campID);
+                const response = await getCampgroundID(id);
                 const campData = await response.json();
                 setCampground(campData);
             } catch (err) {
@@ -33,20 +31,22 @@ export default function EditCamp() {
 
     const handleChange = (evt) => {
 
-        const newValue = evt.target.value;
-        const updatedField = evt.target.name;
+        const { name, value } = evt.target;
+        console.log('The target name is:', name);
+        console.log('The target value is:', value);
 
         setCampground(currData => {
-            currData[updatedField] = newValue;
+            currData[name] = value;
             return { ...currData };
         });
 
     };
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
+        await updateCampground(campground);
         alert('Edited Information submitted!');
-        setCampground({});
+        setCampground({ id: "", title: "", location: "" });
     };
 
     return (
@@ -67,10 +67,6 @@ export default function EditCamp() {
                 </h2>
 
                 <CampForm campData={campground} handleChange={handleChange} />
-
-
-
-
 
                 <Button variant="contained" color="success" type="submit">
                     Update Campground
