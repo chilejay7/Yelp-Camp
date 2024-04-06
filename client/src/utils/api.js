@@ -34,3 +34,9 @@ export function updateCampground(updatedCamp) {
         body: JSON.stringify(updatedCamp),
     });
 };
+
+export function googleMapSearch () {
+    return fetch('http://localhost:7075')
+};
+
+// module.exports = googleMapSearch;

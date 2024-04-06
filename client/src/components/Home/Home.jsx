@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCampgrounds } from "../../utils/api";
+import { getCampgrounds, googleMapSearch } from "../../utils/api";
 import { Link, NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -25,9 +25,9 @@ export default function Campgrounds() {
         setCampgrounds([]);
     };
 
-    const googleMapSearch = () => {
-        
-    }
+    const mapSearch = () => {
+        googleMapSearch();
+    };
 
     return (
         <>
@@ -47,8 +47,7 @@ export default function Campgrounds() {
                     loading="lazy"
                     allowFullScreen
                     referrerPolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed/v1/place?key=KeyGoesHere
-    &q=Denver+CO">
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBkz550UcR3138SrDqiOGKn51aqwPQ2Mps&q=Estes+Park+CO">
                 </iframe>
             </div>
 
