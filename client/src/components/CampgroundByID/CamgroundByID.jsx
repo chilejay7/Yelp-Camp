@@ -1,8 +1,9 @@
-import './CampgroundByID.css';
+import GoogleMap from '../GoogleMap/GoogleMap';
 import { getCampgroundID } from '../../utils/api';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import { Link, NavLink, useParams } from 'react-router-dom';
+import './CampgroundByID.css';
 
 
 export default function CampgroundById() {
@@ -37,22 +38,26 @@ export default function CampgroundById() {
 
     return (
         <>
-            <h2>Campground ID!</h2>
+            <h2>{campground.title}</h2>
 
             {Object.keys(campground).length > 0 ? (
                 <>
                     <p>Here is your campground...</p>
                     <p>{campground.title} - {campground.location}</p>
-                    
+
                     <NavLink to={`/campgrounds/${campground._id}/edit`}>
                         <Button variant="contained">Edit Campground</Button>
                     </NavLink>
                 </>
+
+
             ) : (
                 <p>Loading...</p>
             )
 
             }
+
+            <GoogleMap location={campground.location} />
 
         </>
     )
