@@ -21,3 +21,13 @@
         margin: 5px;
     }
 }
+
+.google-map {
+    display: flex;
+}
+
+iframe {
+    margin: 20px auto;
+    width: 75%;
+}
+

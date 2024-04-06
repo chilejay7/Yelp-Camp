@@ -27,11 +27,25 @@ export default function Campgrounds() {
 
     return (
         <>
+
             <div className='home-camps'>
                 <h2>Campgrounds</h2>
 
                 <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
                 <Button variant="contained" onClick={clearSearch}>Clear Search</Button>
+            </div>
+
+            <div className="google-map">
+                <iframe
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed/v1/place?key=KeyGoesHere
+    &q=Denver+CO">
+                </iframe>
             </div>
 
             <Box className="camp-div">
