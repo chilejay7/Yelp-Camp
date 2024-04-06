@@ -1,8 +1,9 @@
-import './CampgroundByID.css';
+import GoogleMap from '../GoogleMap/GoogleMap';
 import { getCampgroundID } from '../../utils/api';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import { Link, NavLink, useParams } from 'react-router-dom';
+import './CampgroundByID.css';
 
 
 export default function CampgroundById() {
@@ -56,17 +57,7 @@ export default function CampgroundById() {
 
             }
 
-            <div className="google-map">
-                <iframe
-                    width="600"
-                    height="450"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    allowFullScreen
-                    referrerPolicy="no-referrer-when-downgrade"
-                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBkz550UcR3138SrDqiOGKn51aqwPQ2Mps&q=${campground.location}`}>
-                </iframe>
-            </div>
+            <GoogleMap location={campground.location} />
 
         </>
     )
