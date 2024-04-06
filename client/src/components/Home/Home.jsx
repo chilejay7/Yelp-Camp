@@ -23,6 +23,10 @@ export default function Campgrounds() {
     const clearSearch = (evt) => {
         evt.preventDefault();
         setCampgrounds([]);
+    };
+
+    const googleMapSearch = () => {
+        
     }
 
     return (
