@@ -37,22 +37,36 @@ export default function CampgroundById() {
 
     return (
         <>
-            <h2>Campground ID!</h2>
+            <h2>{campground.title}</h2>
 
             {Object.keys(campground).length > 0 ? (
                 <>
                     <p>Here is your campground...</p>
                     <p>{campground.title} - {campground.location}</p>
-                    
+
                     <NavLink to={`/campgrounds/${campground._id}/edit`}>
                         <Button variant="contained">Edit Campground</Button>
                     </NavLink>
                 </>
+
+
             ) : (
                 <p>Loading...</p>
             )
 
             }
+
+            <div className="google-map">
+                <iframe
+                    width="600"
+                    height="450"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    allowFullScreen
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBkz550UcR3138SrDqiOGKn51aqwPQ2Mps&q=${campground.location}`}>
+                </iframe>
+            </div>
 
         </>
     )
