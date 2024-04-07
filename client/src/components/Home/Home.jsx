@@ -42,8 +42,8 @@ export default function Campgrounds() {
             </div>
 
             <div className="search-fields">
+                <TextField id="filled-basic" label="Campground Name" variant="filled" className="home-input" />
                 <TextField id="filled-basic" label="Location" variant="filled" className="home-input" />
-                <TextField id="filled-basic" label="Filled" variant="filled" className="home-input" />
             </div>
 
 
