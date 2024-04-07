@@ -1,6 +1,6 @@
 export default function GoogleMap({ location }) {
 
-    console.log('The map location used is:', location);
+    console.log('The map location used is:', location = "Estes Park, CO");
 
     return (
         <div className="google-map">
@@ -11,7 +11,7 @@ export default function GoogleMap({ location }) {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBkz550UcR3138SrDqiOGKn51aqwPQ2Mps&q=${location}`}>
+                src={`https://www.google.com/maps/embed/v1/place?key=&q=${location}`}>
             </iframe>
         </div>
     )

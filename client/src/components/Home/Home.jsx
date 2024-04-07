@@ -47,7 +47,7 @@ export default function Campgrounds() {
             </div>
 
 
-            <GoogleMap location="Estes Park, CO" />
+            <GoogleMap />
 
             <Box className="camp-div">
                 <ul>
