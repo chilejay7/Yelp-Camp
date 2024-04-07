@@ -1,4 +1,4 @@
-export default function GoogleMap({ location }) {
+export default function GoogleMap({ location = "Woodland Park, CO"}) {
 
     console.log('The map location used is:', location);
 
@@ -11,7 +11,7 @@ export default function GoogleMap({ location }) {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBkz550UcR3138SrDqiOGKn51aqwPQ2Mps&q=${location}`}>
+                src={`https://www.google.com/maps/embed/v1/place?key=&q=${location}`}>
             </iframe>
         </div>
     )
