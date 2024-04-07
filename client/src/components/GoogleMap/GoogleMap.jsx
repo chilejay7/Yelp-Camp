@@ -1,4 +1,4 @@
-export default function GoogleMap({ location = "Kansas City, KS"}) {
+export default function GoogleMap({ location = "Woodland Park, CO"}) {
 
     console.log('The map location used is:', location);
 
