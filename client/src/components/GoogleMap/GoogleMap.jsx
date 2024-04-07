@@ -1,6 +1,6 @@
-export default function GoogleMap({ location }) {
+export default function GoogleMap({ location = "Kansas City, KS"}) {
 
-    console.log('The map location used is:', location = "Estes Park, CO");
+    console.log('The map location used is:', location);
 
     return (
         <div className="google-map">
