@@ -1,22 +1,22 @@
 import { FormControl, TextField, Box, Button } from '@mui/material';
+import './CampForm.css'
 
 export default function CampForm( { campData, handleChange } ) {
 
     console.log('The campData is:', campData);
     return (
         <>
-            <div>
+            <div className="search-fields">
                 <TextField id="title" 
                 color="secondary" 
-                label="Campground Title" 
+                label="Campground Name" 
                 variant="outlined" 
                 name="title" 
                 value={campData.title}
-                onChange={handleChange} 
+                onChange={handleChange}
+                className="search-input"
                 />
-            </div>
-
-            <div>
+        
                 <TextField id="location" 
                 color="secondary" 
                 label="Campground Location" 
@@ -24,6 +24,7 @@ export default function CampForm( { campData, handleChange } ) {
                 name="location" 
                 value={campData.location} 
                 onChange={handleChange} 
+                className="search-input"
                 />
             </div>
         </>
