@@ -39,13 +39,6 @@ export default function AddCamp() {
             >
 
                 <h2>Add a New Campground</h2>
-                {/* <div>
-                    <TextField id="title" color="secondary" label="Campground Title" variant="outlined" name="campTitle" value={campData.campTitle} onChange={handleChange} />
-                </div>
-
-                <div>
-                    <TextField id="location" color="secondary" label="Campground Location" variant="outlined" name="campLocation" value={campData.campLocation} onChange={handleChange} />
-                </div> */}
 
                 <CampForm campData={campData} handleChange={handleChange} />
 
