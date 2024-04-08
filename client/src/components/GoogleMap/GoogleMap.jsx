@@ -11,7 +11,9 @@ export default function GoogleMap({ location = "Woodland Park, CO"}) {
                 loading="lazy"
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=&q=${location}`}>
+                src={`https://www.google.com/maps/embed/v1/place?key=&q=${location}`}
+                id="map-iframe"
+                >
             </iframe>
         </div>
     )
