@@ -24,11 +24,14 @@
 
 .google-map {
     display: flex;
+    border: solid blue 3px;
+width: 75%;
+margin: 0 auto;
 }
 
-iframe {
-    margin: 20px auto;
-    width: 75%;
+#map-iframe {
+    width: 100%;
+    border: solid blue 5px;
 }
 
 .search-fields {
