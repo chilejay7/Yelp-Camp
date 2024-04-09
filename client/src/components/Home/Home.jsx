@@ -47,10 +47,10 @@ export default function Campgrounds() {
         <>
 
             <div className='home-camps'>
-                <h2>Campgrounds</h2>
+                <h2>Find a Campground</h2>
 
-                <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
-                <Button variant="contained" onClick={clearSearch}>Clear Search</Button>
+                {/* <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
+                <Button variant="contained" onClick={clearSearch}>Clear Search</Button> */}
             </div>
 
             <div className="search-fields">
