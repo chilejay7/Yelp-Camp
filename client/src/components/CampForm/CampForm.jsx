@@ -4,6 +4,7 @@ import './CampForm.css'
 export default function CampForm( { campData, handleChange } ) {
 
     console.log('The campData is:', campData);
+    
     return (
         <>
             <div className="form-fields" id="form-fields">

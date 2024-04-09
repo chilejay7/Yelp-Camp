@@ -1,7 +1,11 @@
 .home-camps {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & button {
+        margin-top: 10px;
+    }
 }
 
 .camp-div {
@@ -25,8 +29,8 @@
 .google-map {
     display: flex;
     border: solid blue 3px;
-width: 75%;
-margin: 0 auto;
+    width: 75%;
+    margin: 10px auto;
 }
 
 #map-iframe {
@@ -44,4 +48,3 @@ margin: 0 auto;
         width: 25%;
     }
 }
-
