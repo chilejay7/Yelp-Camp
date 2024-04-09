@@ -6,10 +6,12 @@ import { TextField } from "@mui/material";
 import Box from '@mui/material/Box';
 import './Home.css'
 import GoogleMap from "../GoogleMap/GoogleMap";
+import CampForm from "../CampForm/CampForm";
 
 export default function Campgrounds() {
 
     const [campgrounds, setCampgrounds] = useState([]);
+    const [campData, setCampData] = useState({name: "", location: ""});
 
     const loadCampgrounds = async () => {
         const response = await getCampgrounds();
@@ -31,6 +33,16 @@ export default function Campgrounds() {
         googleMapSearch();
     };
 
+    const handleChange = (evt) => {
+        const { name, value } = evt.target;
+
+        setCampData(currData => {
+            currData[name] = value;
+            return {...currData};
+        })
+
+    }
+
     return (
         <>
 
@@ -42,12 +54,35 @@ export default function Campgrounds() {
             </div>
 
             <div className="search-fields">
-                <TextField id="filled-basic" label="Campground Name" variant="filled" className="home-input" />
-                <TextField id="filled-basic" label="Location" variant="filled" className="home-input" />
+
+                <TextField 
+                id="filled-basic" 
+                label="Campground Name" 
+                variant="filled" 
+                className="home-input"
+                name="name"
+                value={campData.name}
+                onChange={handleChange}
+                />
+
+                <TextField 
+                id="filled-basic" 
+                label="Location" 
+                variant="filled" 
+                className="home-input" 
+                name="location"
+                value={campData.location}
+                onChange={handleChange}
+                />
+
+                <Button variant="contained">Find Campground</Button>
+
             </div>
 
+            {/* <CampForm campData={campData} /> */}
 
-            <GoogleMap />
+
+            <GoogleMap location={ campData.location ? campData.location : "Woodland Park, CO"} />
 
             <Box className="camp-div">
                 <ul>

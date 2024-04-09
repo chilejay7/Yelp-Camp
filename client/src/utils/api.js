@@ -15,7 +15,6 @@ export function getCampgroundID(campID) {
 };
 
 export function createCampground(newCamp) {
-    console.log('Sending Camp Data through POST:', newCamp)
     return fetch(`/api/campgrounds`, {
         method: 'POST',
         headers: {
@@ -38,5 +37,3 @@ export function updateCampground(updatedCamp) {
 export function googleMapSearch () {
     return fetch('http://localhost:7075')
 };
-
-// module.exports = googleMapSearch;

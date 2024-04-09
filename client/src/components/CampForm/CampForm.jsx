@@ -4,9 +4,10 @@ import './CampForm.css'
 export default function CampForm( { campData, handleChange } ) {
 
     console.log('The campData is:', campData);
+    
     return (
         <>
-            <div className="search-fields">
+            <div className="form-fields" id="form-fields">
                 <TextField id="title" 
                 color="secondary" 
                 label="Campground Name" 
@@ -14,7 +15,7 @@ export default function CampForm( { campData, handleChange } ) {
                 name="title" 
                 value={campData.title}
                 onChange={handleChange}
-                className="search-input"
+                className="form-input"
                 />
         
                 <TextField id="location" 
@@ -24,7 +25,7 @@ export default function CampForm( { campData, handleChange } ) {
                 name="location" 
                 value={campData.location} 
                 onChange={handleChange} 
-                className="search-input"
+                className="form-input"
                 />
             </div>
         </>
