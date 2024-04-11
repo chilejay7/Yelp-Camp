@@ -13,6 +13,26 @@ export default function Campgrounds() {
     const [campgrounds, setCampgrounds] = useState([]);
     const [campData, setCampData] = useState({name: "", location: ""});
 
+    const getLocation = async () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                const { latitude, longitude }= position.coords;
+                console.log('The coordinates are:', position.coords);
+                console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+            },
+            error => console.error("Unable to retrieve your location"));
+          } else {
+            console.log("Geolocation not supported");
+          }
+    };
+
+    useEffect(() => {
+        
+        getLocation();
+
+    }, []);
+
     const loadCampgrounds = async () => {
         const response = await getCampgrounds();
         const data = await response.json();
