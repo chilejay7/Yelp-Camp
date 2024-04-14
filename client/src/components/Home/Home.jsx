@@ -11,24 +11,24 @@ import CampForm from "../CampForm/CampForm";
 export default function Campgrounds() {
 
     const [campgrounds, setCampgrounds] = useState([]);
-    const [campData, setCampData] = useState({name: "", location: ""});
+    const [campData, setCampData] = useState({ title: "", location: "" });
 
     const getLocation = async () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
-                const { latitude, longitude }= position.coords;
-                console.log('The coordinates are:', position.coords);
-                console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-            },
-            error => console.error("Unable to retrieve your location"));
-          } else {
+                    const { latitude, longitude } = position.coords;
+                    console.log('The coordinates are:', position.coords);
+                    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+                },
+                error => console.error("Unable to retrieve your location"));
+        } else {
             console.log("Geolocation not supported");
-          }
+        }
     };
 
     useEffect(() => {
-        
+
         getLocation();
 
     }, []);
@@ -58,9 +58,13 @@ export default function Campgrounds() {
 
         setCampData(currData => {
             currData[name] = value;
-            return {...currData};
+            return { ...currData };
         })
 
+    }
+
+    const handleSubmit = (evt) => {
+        alert('Search submitted!');
     }
 
     return (
@@ -68,41 +72,21 @@ export default function Campgrounds() {
 
             <div className='home-camps'>
                 <h2>Find a Campground</h2>
-
-                {/* <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
-                <Button variant="contained" onClick={clearSearch}>Clear Search</Button> */}
             </div>
 
             <div className="search-fields">
+                <form onSubmit={handleSubmit}>
 
-                <TextField 
-                id="filled-basic" 
-                label="Campground Name" 
-                variant="filled" 
-                className="home-input"
-                name="name"
-                value={campData.name}
-                onChange={handleChange}
-                />
+                    <CampForm campData={campData} />
 
-                <TextField 
-                id="filled-basic" 
-                label="Location" 
-                variant="filled" 
-                className="home-input" 
-                name="location"
-                value={campData.location}
-                onChange={handleChange}
-                />
+                    <Button variant="contained" type="submit">Find Campground</Button>
 
-                <Button variant="contained">Find Campground</Button>
+                </form>
 
             </div>
 
-            {/* <CampForm campData={campData} /> */}
 
-
-            <GoogleMap location={ campData.location ? campData.location : "Woodland Park, CO"} />
+            <GoogleMap title={campData.title} location={campData.location ? campData.location : "Woodland Park, CO"} />
 
             <Box className="camp-div">
                 <ul>
