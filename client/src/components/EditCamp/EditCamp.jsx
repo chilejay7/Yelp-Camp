@@ -32,8 +32,6 @@ export default function EditCamp() {
     const handleChange = (evt) => {
 
         const { name, value } = evt.target;
-        console.log('The target name is:', name);
-        console.log('The target value is:', value);
 
         setCampground(currData => {
             currData[name] = value;

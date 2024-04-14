@@ -63,44 +63,27 @@ export default function Campgrounds() {
 
     }
 
+    const handleSubmit = (evt) => {
+        alert('Search submitted!');
+    }
+
     return (
         <>
 
             <div className='home-camps'>
                 <h2>Find a Campground</h2>
-
-                {/* <Button variant="contained" onClick={handleSearch}>Find Campgrounds</Button>
-                <Button variant="contained" onClick={clearSearch}>Clear Search</Button> */}
             </div>
 
             <div className="search-fields">
+                <form onSubmit={handleSubmit}>
 
-               
-                    <TextField
-                        id="filled-basic"
-                        label="Campground Name"
-                        variant="filled"
-                        className="home-input"
-                        name="title"
-                        value={campData.title}
-                        onChange={handleChange}
-                    />
+                    <CampForm campData={campData} />
 
-                    <TextField
-                        id="filled-basic"
-                        label="Location"
-                        variant="filled"
-                        className="home-input"
-                        name="location"
-                        value={campData.location}
-                        onChange={handleChange}
-                    />
+                    <Button variant="contained" type="submit">Find Campground</Button>
 
-                    <Button variant="contained">Find Campground</Button>
+                </form>
 
             </div>
-
-            {/* <CampForm campData={campData} /> */}
 
 
             <GoogleMap title={campData.title} location={campData.location ? campData.location : "Woodland Park, CO"} />
