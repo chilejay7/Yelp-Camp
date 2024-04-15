@@ -70,14 +70,14 @@ export default function Campgrounds() {
     return (
         <>
 
-            <div className='home-camps'>
+            <div className="home-camps">
                 <h2>Find a Campground</h2>
             </div>
 
             <div className="search-fields">
                 <form onSubmit={handleSubmit}>
 
-                    <CampForm campData={campData} />
+                    <CampForm campData={campData} handleChange={handleChange} />
 
                     <Button variant="contained" type="submit">Find Campground</Button>
 
