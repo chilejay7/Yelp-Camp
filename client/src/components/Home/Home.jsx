@@ -12,31 +12,33 @@ export default function Campgrounds() {
 
     const [campgrounds, setCampgrounds] = useState([]);
     const [campData, setCampData] = useState({ title: "", location: "" });
-    const [location, setLocation] = useState({latitude:"", longitude:""});
+    const [location, setLocation] = useState({ latitude: "", longitude: "" });
 
-    const getLocation = async () => {
+    useEffect(() => {
+       
+            getLocation();
+
+            setCampData({ title: location.latitude, location: location.longitude });
+            
+        }, []);
+
+    const getLocation = () => {
         if (navigator.geolocation) {
-            await navigator.geolocation.getCurrentPosition(
-                position => {
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
                     const { latitude, longitude } = position.coords;
                     console.log('The coordinates are:', position.coords);
                     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
 
-                    setLocation({latitude: latitude, longitude: longitude});
-                    console.log("The location is:", location);
+                    setLocation({ latitude: latitude, longitude: longitude });
+
+                    console.log("The geoposition is:", location);
                 },
                 error => console.error("Unable to retrieve your location"));
         } else {
             console.log("Geolocation not supported");
         }
     };
-
-    useEffect(() => {
-
-        getLocation();
-        setCampData({title: location.latitude, location: location.longitude});
-
-    }, []);
 
     const loadCampgrounds = async () => {
         const response = await getCampgrounds();
@@ -90,8 +92,8 @@ export default function Campgrounds() {
 
             </div>
 
-            <GoogleMap title={campData.title} location={campData.location ? campData.location 
-                :  "Woodland Park, CO"} />
+            <GoogleMap title={campData.title} location={campData.location ? campData.location
+                : "Woodland Park, CO"} />
 
             <Box className="camp-div">
                 <ul>
