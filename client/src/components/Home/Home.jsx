@@ -12,30 +12,36 @@ export default function Campgrounds() {
 
     const [campgrounds, setCampgrounds] = useState([]);
     const [campData, setCampData] = useState({ title: "", location: "" });
-    const [location, setLocation] = useState({latitude:"", longitude:""});
-
-    const getLocation = async () => {
-        if (navigator.geolocation) {
-            await navigator.geolocation.getCurrentPosition(
-                position => {
-                    const { latitude, longitude } = position.coords;
-                    console.log('The coordinates are:', position.coords);
-                    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-
-                    setLocation({latitude: latitude, longitude: longitude});
-                    console.log("The location is:", location);
-                },
-                error => console.error("Unable to retrieve your location"));
-        } else {
-            console.log("Geolocation not supported");
-        }
-    };
+    const [location, setLocation] = useState({ latitude: "", longitude: "" });
 
     useEffect(() => {
 
-        getLocation();
+        const getLocation = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        const { latitude, longitude } = position.coords;
+                        console.log('The coordinates are:', position.coords);
+                        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    
+                        setLocation({ latitude, longitude });
+    
+                        console.log("The geoposition is:", location);
+                    },
+                    error => console.error("Unable to retrieve your location"));
+            } else {
+                console.log("Geolocation not supported");
+            }
+        };
+       
+            getLocation();
 
-    }, []);
+        }, []);
+
+
+        useEffect(() => {
+            setCampData({ title: location.latitude, location: location.longitude });
+        }, [location]);
 
     const loadCampgrounds = async () => {
         const response = await getCampgrounds();
@@ -89,8 +95,8 @@ export default function Campgrounds() {
 
             </div>
 
-            <GoogleMap title={campData.title} location={campData.location ? campData.location 
-                :  "Woodland Park, CO"} />
+            <GoogleMap title={campData.title} location={campData.location ? campData.location
+                : "Woodland Park, CO"} />
 
             <Box className="camp-div">
                 <ul>
