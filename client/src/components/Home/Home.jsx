@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCampgrounds, googleMapSearch } from "../../utils/api";
+import { getCampgrounds } from "../../utils/api";
 import { Link, NavLink } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import { TextField } from "@mui/material";
@@ -12,14 +12,18 @@ export default function Campgrounds() {
 
     const [campgrounds, setCampgrounds] = useState([]);
     const [campData, setCampData] = useState({ title: "", location: "" });
+    const [location, setLocation] = useState({latitude:"", longitude:""});
 
     const getLocation = async () => {
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
+            await navigator.geolocation.getCurrentPosition(
                 position => {
                     const { latitude, longitude } = position.coords;
                     console.log('The coordinates are:', position.coords);
                     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+
+                    setLocation({latitude: latitude, longitude: longitude});
+                    console.log("The location is:", location);
                 },
                 error => console.error("Unable to retrieve your location"));
         } else {
@@ -70,14 +74,14 @@ export default function Campgrounds() {
     return (
         <>
 
-            <div className='home-camps'>
+            <div className="home-camps">
                 <h2>Find a Campground</h2>
             </div>
 
             <div className="search-fields">
                 <form onSubmit={handleSubmit}>
 
-                    <CampForm campData={campData} />
+                    <CampForm campData={campData} handleChange={handleChange} />
 
                     <Button variant="contained" type="submit">Find Campground</Button>
 
@@ -85,8 +89,8 @@ export default function Campgrounds() {
 
             </div>
 
-
-            <GoogleMap title={campData.title} location={campData.location ? campData.location : "Woodland Park, CO"} />
+            <GoogleMap title={campData.title} location={campData.location ? campData.location 
+                :  "Woodland Park, CO"} />
 
             <Box className="camp-div">
                 <ul>
