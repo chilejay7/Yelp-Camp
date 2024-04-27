@@ -34,6 +34,7 @@ export default function Campgrounds() {
     useEffect(() => {
 
         getLocation();
+        setCampData({title: location.latitude, location: location.longitude});
 
     }, []);
 
