@@ -89,7 +89,8 @@ export default function Campgrounds() {
 
             </div>
 
-            <GoogleMap title={campData.title} location={campData.location ? campData.location : "Woodland Park, CO"} />
+            <GoogleMap title={campData.title} location={campData.location ? campData.location 
+                :  "Woodland Park, CO"} />
 
             <Box className="camp-div">
                 <ul>
