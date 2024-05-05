@@ -19,7 +19,7 @@ export default function Campgrounds() {
         const getLocation = () => {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
-                    async (position) => {
+                    (position) => {
                         const { latitude, longitude } = position.coords;
                         console.log('The coordinates are:', position.coords);
                         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
@@ -74,6 +74,7 @@ export default function Campgrounds() {
     }
 
     const handleSubmit = (evt) => {
+        evt.preventDefault();
         alert('Search submitted!');
     }
 
