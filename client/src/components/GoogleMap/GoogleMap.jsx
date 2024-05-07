@@ -1,20 +1,23 @@
-export default function GoogleMap({ title, location = "Woodland Park, CO"}) {
+import { useRef, createElement } from "react";
+import {
+    APIProvider,
+    Map,
+    AdvancedMarker,
+    Pin,
+    InfoWindow
+} from '@vis.gl/react-google-maps';
 
-    console.log('The map location used is:', location);
+export default function GoogleMap({ title, latitude, longitude, location = "Woodland Park, CO" }) {
+    const position = { lat: 39.6623872, lng: -104.93952 };
+    const apiKey = import.meta.env.VITE_MAP_KEY;
+    const mapId = import.meta.env.VITE_MAP_ID;
 
     return (
-        <div className="google-map">
-            <iframe
-                width="600"
-                height="450"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=&q=${title}+${location}`}
-                id="map-iframe"
-                >
-            </iframe>
-        </div>
-    )
+        <APIProvider apiKey={apiKey}>
+            <div id="google-map">
+                <Map zoom={9} center={position} style={{ height: "50vh" }}></Map>
+                <AdvancedMarker position={position} mapId={mapId}></AdvancedMarker>
+            </div>
+        </APIProvider>
+    );
 }
