@@ -34,7 +34,7 @@ form {
     }
 }
 
-.google-map {
+#google-map {
     display: flex;
     width: 75%;
     margin: 20px auto;
