@@ -16,7 +16,7 @@ export default function GoogleMap({ title, latitude, longitude, location = "Wood
     return (
         <APIProvider apiKey={apiKey}>
             <div id="google-map">
-                <Map zoom={9} center={position} style={{ height: "50vh" }} mapId={mapId}></Map>
+                <Map defaultZoom={12} defaultCenter={position} style={{ height: "50vh" }} mapId={mapId}></Map>
                 <AdvancedMarker position={position} >
                     <img src={markerImg} width={32} height={32}></img>
                 </AdvancedMarker>
